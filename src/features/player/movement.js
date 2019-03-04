@@ -1,5 +1,7 @@
 export default function handleMovement(player) {
   function handleKeyDown(e) {
+    e.preventDefault();
+
     switch (e.keyCode) {
       default:
         console.log(e.keyCode);
