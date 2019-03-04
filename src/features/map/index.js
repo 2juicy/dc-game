@@ -4,10 +4,10 @@ function Map(props) {
   return (
     <div
       style={{
-        width: "800px",
+        width: "808px",
         height: "400px",
-        backgroundColor: "grey",
-        border: "4px solid white"
+        backgroundColor: "silver",
+        border: "2.5px solid black"
       }}
     />
   );
