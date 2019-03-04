@@ -13,6 +13,7 @@ export default function handleMovement(player) {
         return [oldPos[0], oldPos[1] - SPRITE_SIZE];
       case "SOUTH":
         return [oldPos[0], oldPos[1] + SPRITE_SIZE];
+      default:
     }
   }
 
