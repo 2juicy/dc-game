@@ -8,19 +8,19 @@ self.__precacheManifest = [
     "url": "/dc-game/static/js/runtime~main.c75294a3.js"
   },
   {
-    "revision": "81d27a3dbcb1676de97c",
-    "url": "/dc-game/static/js/main.81d27a3d.chunk.js"
+    "revision": "19bbd27efa3e6dfb5fc4",
+    "url": "/dc-game/static/js/main.19bbd27e.chunk.js"
   },
   {
     "revision": "5f0cd0489c779fd96663",
     "url": "/dc-game/static/js/2.5f0cd048.chunk.js"
   },
   {
-    "revision": "81d27a3dbcb1676de97c",
-    "url": "/dc-game/static/css/main.38880e47.chunk.css"
+    "revision": "19bbd27efa3e6dfb5fc4",
+    "url": "/dc-game/static/css/main.96d6e26c.chunk.css"
   },
   {
-    "revision": "86954ddac3b1c8789ed335dda61365cf",
+    "revision": "34e176b674b15ca72aa0aa660dea18a3",
     "url": "/dc-game/index.html"
   }
 ];
