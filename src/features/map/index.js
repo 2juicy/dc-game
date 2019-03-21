@@ -1,5 +1,9 @@
 import React from "react";
 
+function MapTile(props) {
+  return <div />;
+}
+
 function Map(props) {
   return (
     <div
@@ -9,7 +13,11 @@ function Map(props) {
         backgroundColor: "silver",
         border: "2.5px solid black"
       }}
-    />
+    >
+      {props.tiles.map(tile => (
+        <MapTile value={tile} />
+      ))}
+    </div>
   );
 }
 
