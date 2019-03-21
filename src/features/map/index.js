@@ -1,11 +1,38 @@
 import React from "react";
+import { SPRITE_SIZE } from "../../config/constants";
+import "./style.css";
+
+function getTileSprite(type) {
+  switch (type) {
+    case 0:
+      return "floor";
+    case 5:
+      return "rock";
+    case 6:
+      return "tree";
+  }
+}
 
 function MapTile(props) {
-  return <div />;
+  return (
+    <div
+      className={`tile ${getTileSprite(props.tile)}`}
+      style={{
+        height: SPRITE_SIZE,
+        width: SPRITE_SIZE
+      }}
+    />
+  );
 }
 
 function MapRow(props) {
-  return props.tiles.map(tile => <MapTile value={tile} />);
+  return (
+    <div className="row">
+      {props.tiles.map(tile => (
+        <MapTile tile={tile} />
+      ))}
+    </div>
+  );
 }
 
 function Map(props) {
