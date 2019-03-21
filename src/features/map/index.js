@@ -42,7 +42,7 @@ function MapRow(props) {
   );
 }
 
-function Map(props) {
+function Map(props, key) {
   return (
     <div
       style={{
