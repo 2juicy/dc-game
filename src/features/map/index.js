@@ -4,6 +4,10 @@ function MapTile(props) {
   return <div />;
 }
 
+function MapRow(props) {
+  return props.tiles.map(tile => <MapTile value={tile} />);
+}
+
 function Map(props) {
   return (
     <div
@@ -14,8 +18,8 @@ function Map(props) {
         border: "2.5px solid black"
       }}
     >
-      {props.tiles.map(tile => (
-        <MapTile value={tile} />
+      {props.tiles.map(row => (
+        <MapRow tiles={row} />
       ))}
     </div>
   );
