@@ -10,6 +10,8 @@ function getTileSprite(type) {
       return "rock";
     case 6:
       return "tree";
+    default:
+      return "floor";
   }
 }
 
@@ -27,7 +29,12 @@ function MapTile(props) {
 
 function MapRow(props) {
   return (
-    <div className="row">
+    <div
+      className="row"
+      style={{
+        height: SPRITE_SIZE
+      }}
+    >
       {props.tiles.map(tile => (
         <MapTile tile={tile} />
       ))}
@@ -39,9 +46,11 @@ function Map(props) {
   return (
     <div
       style={{
-        width: "808px",
-        height: "425px",
-        backgroundColor: "silver",
+        position: "relative",
+        top: "0px",
+        left: "0px",
+        width: "800px",
+        height: "400px",
         border: "2.5px solid black"
       }}
     >

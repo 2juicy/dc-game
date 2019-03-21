@@ -1,6 +1,5 @@
 .tile {
   display: inline-flex;
-  background-color: gray;
 }
 
 .floor {
@@ -8,9 +7,9 @@
 }
 
 .rock {
-  background-image: url("/tiles/rock.png");
+  background: gray url(/tiles/rock.png);
 }
 
 .tree {
-  background-image: url("/tiles/tree.jpg");
+  background: gray url(/tiles/tree.png);
 }
