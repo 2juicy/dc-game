@@ -8,14 +8,14 @@
 
 .rock {
   /* Development URL */
-  /* background: gray url(/tiles/rock.png); */
+  background: gray url(/tiles/rock.png);
   /* Production URL */
-  background: gray url(/dc-game/tiles/rock.png);
+  /* background: gray url(/dc-game/tiles/rock.png); */
 }
 
 .tree {
   /* Development URL */
-  /* background: gray url(/tiles/tree.png); */
+  background: gray url(/tiles/tree.png);
   /* Production URL */
-  background: gray url(/dc-game/tiles/tree.png);
+  /* background: gray url(/dc-game/tiles/tree.png); */
 }
