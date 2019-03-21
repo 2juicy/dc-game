@@ -7,9 +7,15 @@
 }
 
 .rock {
-  background: gray url(/tiles/rock.png);
+  /* Development URL */
+  /* background: gray url(/tiles/rock.png); */
+  /* Production URL */
+  background: gray url(/dc-game/tiles/rock.png);
 }
 
 .tree {
-  background: gray url(/tiles/tree.png);
+  /* Development URL */
+  /* background: gray url(/tiles/tree.png); */
+  /* Production URL */
+  background: gray url(/dc-game/tiles/tree.png);
 }
