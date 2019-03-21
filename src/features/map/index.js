@@ -5,13 +5,12 @@ import "./style.css";
 function getTileSprite(type) {
   switch (type) {
     case 0:
-      return "floor";
+      return "grass";
     case 5:
       return "rock";
     case 6:
       return "tree";
     default:
-      return "floor";
   }
 }
 
@@ -42,7 +41,7 @@ function MapRow(props) {
   );
 }
 
-function Map(props, key) {
+function Map(props) {
   return (
     <div
       style={{

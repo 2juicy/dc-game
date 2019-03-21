@@ -2,20 +2,20 @@
   display: inline-flex;
 }
 
-.floor {
-  background-color: gray;
+.grass {
+  background-color: #567d46;
 }
 
 .rock {
   /* Development URL */
-  background: gray url(/tiles/rock.png);
+  background: #567d46 url(/tiles/rock.png);
   /* Production URL */
   /* background: gray url(/dc-game/tiles/rock.png); */
 }
 
 .tree {
   /* Development URL */
-  background: gray url(/tiles/tree.png);
+  background: #567d46 url(/tiles/tree.png);
   /* Production URL */
   /* background: gray url(/dc-game/tiles/tree.png); */
 }
