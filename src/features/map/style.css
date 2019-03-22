@@ -3,19 +3,19 @@
 }
 
 .grass {
-  background-color: #567d46;
+  background-color: #4f7942;
 }
 
 .rock {
   /* Development URL */
-  background: #567d46 url(/tiles/rock.png);
+  background: #4f7942 url(/tiles/rock.png);
   /* Production URL */
-  /* background: gray url(/dc-game/tiles/rock.png); */
+  /* background: #4f7942 url(/dc-game/tiles/rock.png); */
 }
 
 .tree {
   /* Development URL */
-  background: #567d46 url(/tiles/tree.png);
+  background: #4f7942 url(/tiles/tree.png);
   /* Production URL */
-  /* background: gray url(/dc-game/tiles/tree.png); */
+  /* background: #4f7942 url(/dc-game/tiles/tree.png); */
 }
