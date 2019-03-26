@@ -19,3 +19,10 @@
   /* Production URL */
   /* background: #4f7942 url(/dc-game/tiles/tree.png); */
 }
+
+.chest {
+  /* Development URL */
+  background: #4f7942 url(/tiles/chest.png);
+  /* Production URL */
+  /* background: #4f7942 url(/dc-game/tiles/chest.png); */
+}
