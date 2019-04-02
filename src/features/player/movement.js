@@ -16,6 +16,14 @@ export default function handleMovement(player) {
     }
   }
 
+  function getSpriteLocation(direction) {
+    switch (direction) {
+      case "WEST":
+        return `40px 0px`;
+      default:
+    }
+  }
+
   function observeBoundaries(oldPos, newPos) {
     return (
       newPos[0] >= 0 &&
@@ -37,7 +45,8 @@ export default function handleMovement(player) {
       type: "MOVE_PLAYER",
       payload: {
         position: newPos,
-        direction
+        direction,
+        spriteLocation: getSpriteLocation(direction)
       }
     });
   }
