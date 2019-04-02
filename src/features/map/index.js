@@ -53,7 +53,7 @@ function Map(props) {
         left: "0px",
         width: "800px",
         height: "400px",
-        border: "2.5px solid black"
+        border: "2.5px solid gray"
       }}
     >
       {props.tiles.map(row => (
