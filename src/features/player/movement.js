@@ -16,16 +16,16 @@ export default function handleMovement(player) {
     }
   }
 
-  function getSpriteLocation(direction) {
+  function getSpriteLocation(direction, walkIndex) {
     switch (direction) {
       case "SOUTH":
-        return `0px ${SPRITE_SIZE * 0}px`;
+        return `${SPRITE_SIZE*walkIndex}px ${SPRITE_SIZE * 0}px`;
       case "EAST":
-        return `0px ${SPRITE_SIZE * 1}px`;
+        return `${SPRITE_SIZE*walkIndex}px ${SPRITE_SIZE * 1}px`;
       case "WEST":
-        return `0px ${SPRITE_SIZE * 2}px`;
+        return `${SPRITE_SIZE*walkIndex}px ${SPRITE_SIZE * 2}px`;
       case "NORTH":
-        return `0px ${SPRITE_SIZE * 3}px`;
+        return `${SPRITE_SIZE*walkIndex}px ${SPRITE_SIZE * 3}px`;
       default:
     }
   }
@@ -47,12 +47,13 @@ export default function handleMovement(player) {
   }
 
   function dispatchMove(direction, newPos) {
+    const walkIndex
     store.dispatch({
       type: "MOVE_PLAYER",
       payload: {
         position: newPos,
         direction,
-        spriteLocation: getSpriteLocation(direction)
+        spriteLocation: getSpriteLocation(direction, walkIndex)
       }
     });
   }
