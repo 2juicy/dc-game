@@ -32,11 +32,12 @@ export default function handleMovement(player) {
     return nextTile < 5;
   }
 
-  function dispatchMove(newPos) {
+  function dispatchMove(direction, newPos) {
     store.dispatch({
       type: "MOVE_PLAYER",
       payload: {
-        position: newPos
+        position: newPos,
+        direction
       }
     });
   }
@@ -46,7 +47,7 @@ export default function handleMovement(player) {
     const newPos = getNewPosition(oldPos, direction);
 
     if (observeBoundaries(oldPos, newPos) && observeImpassable(oldPos, newPos))
-      dispatchMove(newPos);
+      dispatchMove(direction, newPos);
   }
 
   function handleKeyDown(e) {
