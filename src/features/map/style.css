@@ -8,21 +8,21 @@
 
 .rock {
   /* Development URL */
-  /* background: #4f7942 url(/tiles/rock.png); */
+  background: #4f7942 url(/tiles/rock.png);
   /* Production URL */
-  background: #4f7942 url(/dc-game/tiles/rock.png);
+  /* background: #4f7942 url(/dc-game/tiles/rock.png); */
 }
 
 .tree {
   /* Development URL */
-  /* background: #4f7942 url(/tiles/tree.png); */
+  background: #4f7942 url(/tiles/tree.png);
   /* Production URL */
-  background: #4f7942 url(/dc-game/tiles/tree.png);
+  /* background: #4f7942 url(/dc-game/tiles/tree.png); */
 }
 
 .chest {
   /* Development URL */
-  /* background: #4f7942 url(/tiles/chest.png); */
+  background: #4f7942 url(/tiles/chest.png);
   /* Production URL */
-  background: #4f7942 url(/dc-game/tiles/chest.png);
+  /* background: #4f7942 url(/dc-game/tiles/chest.png); */
 }
