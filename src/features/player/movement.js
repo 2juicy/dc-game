@@ -19,13 +19,13 @@ export default function handleMovement(player) {
   function getSpriteLocation(direction) {
     switch (direction) {
       case "SOUTH":
-        return `0px 0px`;
+        return `0px ${SPRITE_SIZE * 0}px`;
       case "EAST":
-        return `0px 40px`;
+        return `0px ${SPRITE_SIZE * 1}px`;
       case "WEST":
-        return `0px 80px`;
+        return `0px ${SPRITE_SIZE * 2}px`;
       case "NORTH":
-        return `0px 120px;`;
+        return `0px ${SPRITE_SIZE * 3}px`;
       default:
     }
   }
