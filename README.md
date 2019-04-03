@@ -1,4 +1,3 @@
 Dungeon Crawler Game, current WIP
 
-- Map and level design in progress.
-- Final task is to create map objective.
+- Combat mechanics need to be built next
