@@ -1,28 +1,28 @@
 .tile {
   display: inline-flex;
+  background-color: #4f7942;
 }
 
 .grass {
-  background-color: #4f7942;
 }
 
 .rock {
   /* Development URL */
-  background: #4f7942 url(/tiles/rock.png);
+  background-image: url(/tiles/rock.png);
   /* Production URL */
-  /* background: #4f7942 url(/dc-game/tiles/rock.png); */
+  /* background-image: url(/dc-game/tiles/rock.png); */
 }
 
 .tree {
   /* Development URL */
-  background: #4f7942 url(/tiles/tree.png);
+  background-image: url(/tiles/tree.png);
   /* Production URL */
-  /* background: #4f7942 url(/dc-game/tiles/tree.png); */
+  /* background-image: url(/dc-game/tiles/tree.png); */
 }
 
 .chest {
   /* Development URL */
-  background: #4f7942 url(/tiles/chest.png);
+  background-image: url(/tiles/chest.png);
   /* Production URL */
-  /* background: #4f7942 url(/dc-game/tiles/chest.png); */
+  /* background-image: url(/dc-game/tiles/chest.png); */
 }
