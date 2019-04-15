@@ -2,7 +2,8 @@ import store from "../../config/store";
 import { SPRITE_SIZE, MAP_HEIGHT, MAP_WIDTH } from "../../config/constants";
 
 function randomCombat() {
-  const random = Math.random() * 10;
+  const random = Math.floor(Math.random() * 10 + 1);
+  console.log(random);
   if (random === 10)
     store.dispatch({
       type: "START_COMBAT",
@@ -97,7 +98,6 @@ function handleKeyDown(e) {
 }
 
 function getWalkIndex() {
-  console.log(store.getState().player);
   const index = store.getState().player.walkIndex;
   return index >= 7 ? 0 : index + 1;
 }
