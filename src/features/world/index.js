@@ -1,12 +1,11 @@
-import React, { Component } from "react";
+import React from "react";
 import { connect } from "react-redux";
 import Map from "../map";
 import Player from "../player";
 import Combat from "../combat";
 import map from "../../maps/1";
-
 import { MAP_WIDTH, MAP_HEIGHT } from "../../config/constants";
-import handleMovement from "../player/movement";
+import handleMovement from "../movement";
 
 function mapStateToProps(state) {
   return {
@@ -16,8 +15,8 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    persistMapData: data => {
-      dispatch({ type: "ADD_DATA", payload: data });
+    persistMapData: tiles => {
+      dispatch({ type: "ADD_TILES", payload: tiles });
     }
   };
 }

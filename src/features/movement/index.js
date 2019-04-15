@@ -12,7 +12,7 @@ function randomCombat() {
     });
 }
 
-function observeImpassable(oldPos, newPos) {
+function observeImpassable(newPos) {
   const { tiles } = store.getState().map;
   const y = newPos[1] / SPRITE_SIZE;
   const x = newPos[0] / SPRITE_SIZE;
