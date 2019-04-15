@@ -29,9 +29,22 @@ function renderModal(props) {
   switch (props.type) {
     case "COMBAT":
       return <Combat />;
+    default:
   }
 }
 
+function modal(props) {
+  keyCapture(props);
+  return (
+    <div
+      style={{ display: props.visible ? "block" : "none" }}
+      className="modal"
+    >
+      <h1>{props.type}</h1>
+      <div>{renderModal(props)}</div>
+    </div>
+  );
+}
 function mapStateToProps(state) {
   return {
     ...state.fight
@@ -52,4 +65,4 @@ function mapDispatchToProps(dispatch) {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Combat);
+)(modal);
