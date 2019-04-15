@@ -33,7 +33,7 @@ function renderModal(props) {
   }
 }
 
-function modal(props) {
+function Modal(props) {
   keyCapture(props);
   return (
     <div
@@ -65,4 +65,4 @@ function mapDispatchToProps(dispatch) {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(modal);
+)(Modal);
