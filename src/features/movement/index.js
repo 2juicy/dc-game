@@ -31,7 +31,7 @@ function observeBoundaries(newPos) {
 
 function attemptMove(oldPos, newPos) {
   let inBoundary = observeBoundaries(newPos);
-  if (inBoundary) inBoundary = observeImpassable(oldPos, newPos);
+  if (inBoundary) inBoundary = observeImpassable(newPos);
   if (inBoundary) animateWalk();
   randomCombat();
   return inBoundary ? newPos : oldPos;
@@ -40,13 +40,13 @@ function attemptMove(oldPos, newPos) {
 function getNewPosition(oldPos, direction) {
   switch (direction) {
     case "WEST":
-      return attemptMove([oldPos[0] - SPRITE_SIZE, oldPos[1]]);
+      return attemptMove(oldPos, [oldPos[0] - SPRITE_SIZE, oldPos[1]]);
     case "EAST":
-      return attemptMove([oldPos[0] + SPRITE_SIZE, oldPos[1]]);
+      return attemptMove(oldPos, [oldPos[0] + SPRITE_SIZE, oldPos[1]]);
     case "NORTH":
-      return attemptMove([oldPos[0], oldPos[1] - SPRITE_SIZE]);
+      return attemptMove(oldPos, [oldPos[0], oldPos[1] - SPRITE_SIZE]);
     case "SOUTH":
-      return attemptMove([oldPos[0], oldPos[1] + SPRITE_SIZE]);
+      return attemptMove(oldPos, [oldPos[0], oldPos[1] + SPRITE_SIZE]);
     default:
       return [oldPos[0], oldPos[1]];
   }
@@ -67,7 +67,7 @@ function getSpriteLocation(direction) {
   }
 }
 
-function dispatchMove(direction) {
+function dispatchMove(e, direction) {
   const state = store.getState();
   store.dispatch({
     type: "MOVE_PLAYER",
@@ -77,6 +77,7 @@ function dispatchMove(direction) {
       spriteLocation: getSpriteLocation(direction)
     }
   });
+  e.preventDefault();
 }
 
 function handleKeyDown(e) {
