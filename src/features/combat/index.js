@@ -19,6 +19,12 @@ function handleKeyDown(e) {
   }
 }
 
+function keyCapture(props) {
+  window.addEventListener("keydown", e => {
+    if (props.visible) handleKeyDown(e);
+  });
+}
+
 function mapStateToProps(state) {
   return {
     ...state.fight
