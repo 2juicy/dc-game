@@ -5,29 +5,39 @@ import Player from "../player";
 import Combat from "../combat";
 import map from "../../maps/1";
 
-function mapStateToProps(state){
-  
+function mapStateToProps(state) {
+  return {
+    map: state.map
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    persistMapData: data => {
+      dispatch({ type: "ADD_DATA", payload: data });
+    }
+  };
 }
 
 class World extends React.Component {
-componentDidMount(){
-  this.props.persistMapData(map);
+  componentDidMount() {
+    this.props.persistMapData(map);
+  }
+
+  render() {
+    return (
+      <div
+        style={{
+          position: "relative",
+          width: "800px",
+          height: "400px",
+          margin: "20px auto"
+        }}
+      >
+        <Map />
+        <Player />
+      </div>
+    );
+  }
 }
-
-
-  return (
-    <div
-      style={{
-        position: "relative",
-        width: "800px",
-        height: "400px",
-        margin: "20px auto"
-      }}
-    >
-      <Map />
-      <Player />
-    </div>
-  );
-}
-
 export default World;
