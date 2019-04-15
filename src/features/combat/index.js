@@ -47,7 +47,7 @@ function Modal(props) {
 }
 function mapStateToProps(state) {
   return {
-    ...state.fight
+    ...state.combat
   };
 }
 

@@ -3,13 +3,14 @@ import { SPRITE_SIZE, MAP_HEIGHT, MAP_WIDTH } from "../../config/constants";
 
 function randomCombat() {
   const random = Math.floor(Math.random() * 10 + 1);
-  if (random === 10)
+  if (random === 10) {
     store.dispatch({
       type: "START_COMBAT",
       payload: {
         type: "COMBAT"
       }
     });
+  }
 }
 
 function observeImpassable(newPos) {
@@ -107,6 +108,7 @@ function animateWalk() {
 
 export default function handleMovement(component) {
   window.addEventListener("keydown", e => {
+    console.log(store.getState());
     if (!store.getState().combat.visible) handleKeyDown(e);
   });
   return component;

@@ -14,7 +14,7 @@ const combatReducer = (state = initialState, action) => {
         visible: false
       };
     default:
-      return false;
+      return state;
   }
 };
 
