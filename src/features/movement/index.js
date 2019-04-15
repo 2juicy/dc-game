@@ -3,7 +3,6 @@ import { SPRITE_SIZE, MAP_HEIGHT, MAP_WIDTH } from "../../config/constants";
 
 function randomCombat() {
   const random = Math.floor(Math.random() * 10 + 1);
-  console.log(random);
   if (random === 10)
     store.dispatch({
       type: "START_COMBAT",
