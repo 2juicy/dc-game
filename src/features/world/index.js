@@ -6,6 +6,7 @@ import Combat from "../combat";
 import map from "../../maps/1";
 
 import { MAP_WIDTH, MAP_HEIGHT } from "../../config/constants";
+import handleMovement from "../player/movement";
 
 function mapStateToProps(state) {
   return {
@@ -29,17 +30,22 @@ class World extends React.Component {
   render() {
     return (
       <div
+        className="map"
         style={{
           position: "relative",
-          width: "800px",
-          height: "400px",
+          width: MAP_WIDTH,
+          height: MAP_HEIGHT,
           margin: "20px auto"
         }}
       >
-        <Map />
+        <Map {...this.props.map} />
         <Player />
+        <Combat />
       </div>
     );
   }
 }
-export default World;
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(handleMovement(World));
