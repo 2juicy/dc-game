@@ -1,7 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
 import { range, sample } from "../../array";
-import combat from ".";
 
 function combatModal(props) {
   return (
