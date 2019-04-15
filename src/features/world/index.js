@@ -1,11 +1,20 @@
-import React from "react";
+import React, { Component } from "react";
+import { connect } from "react-redux";
 import Map from "../map";
 import Player from "../player";
-import { tiles } from "../../maps/1";
-import store from "../../config/store";
+import Combat from "../combat";
+import map from "../../maps/1";
 
-function World(props) {
-  store.dispatch({ type: "ADD_TILES", payload: { tiles } });
+function mapStateToProps(state){
+  
+}
+
+class World extends React.Component {
+componentDidMount(){
+  this.props.persistMapData(map);
+}
+
+
   return (
     <div
       style={{
