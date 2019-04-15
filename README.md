@@ -1,3 +1,3 @@
-Dungeon Crawler Game, current WIP
+Role-playing Game
 
-- Combat mechanics need to be built next
+- Combat mechanics need to be built next * In Progress *
