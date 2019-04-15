@@ -97,6 +97,7 @@ function handleKeyDown(e) {
 }
 
 function getWalkIndex() {
+  console.log(store.getState().player);
   const index = store.getState().player.walkIndex;
   return index >= 7 ? 0 : index + 1;
 }
