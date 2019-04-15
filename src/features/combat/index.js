@@ -24,3 +24,19 @@ function mapStateToProps(state) {
     ...state.fight
   };
 }
+
+function mapDispatchToProps(dispatch) {
+  return {
+    startCombat: type => {
+      dispatch({ type: "START_COMBAT" });
+    },
+    endCombat: type => {
+      dispatch({ type: "END_COMBAT" });
+    }
+  };
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Combat);
