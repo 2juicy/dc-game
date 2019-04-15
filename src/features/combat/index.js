@@ -56,7 +56,7 @@ function mapDispatchToProps(dispatch) {
     startCombat: type => {
       dispatch({ type: "START_COMBAT" });
     },
-    endCombat: type => {
+    endCombat: () => {
       dispatch({ type: "END_COMBAT" });
     }
   };
