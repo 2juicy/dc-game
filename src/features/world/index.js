@@ -5,6 +5,8 @@ import Player from "../player";
 import Combat from "../combat";
 import map from "../../maps/1";
 
+import { MAP_WIDTH, MAP_HEIGHT } from "../../config/constants";
+
 function mapStateToProps(state) {
   return {
     map: state.map
