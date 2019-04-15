@@ -25,6 +25,13 @@ function keyCapture(props) {
   });
 }
 
+function renderModal(props) {
+  switch (props.type) {
+    case "COMBAT":
+      return <Combat />;
+  }
+}
+
 function mapStateToProps(state) {
   return {
     ...state.fight
