@@ -1,9 +1,10 @@
 import React from "react";
 import { connect } from "react-redux";
+import store from "../../config/store";
 import Combat, { handleCombat } from "./combat";
 import "./style.css";
 
-function handleKeyDown(e) {
+function handleCombatKeys(e) {
   e.preventDefault();
   switch (e.keyCode) {
     case 37:
@@ -21,10 +22,11 @@ function handleKeyDown(e) {
   }
 }
 
-function keyCapture(props) {
+function keyCapture(component) {
   window.addEventListener("keydown", e => {
-    if (props.visible) handleKeyDown(e);
+    if (store.getState().combat.visible) handleCombatKeys(e);
   });
+  return component;
 }
 
 function renderModal(props) {
@@ -36,7 +38,6 @@ function renderModal(props) {
 }
 
 function Modal(props) {
-  keyCapture(props);
   return (
     <div
       style={{ display: props.visible ? "block" : "none" }}
@@ -67,4 +68,4 @@ function mapDispatchToProps(dispatch) {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Modal);
+)(keyCapture(Modal));

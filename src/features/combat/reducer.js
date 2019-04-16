@@ -10,9 +10,7 @@ const combatReducer = (state = initialState, action) => {
         ...action.payload
       };
     case "END_COMBAT":
-      return {
-        visible: false
-      };
+      return { visible: false };
     default:
       return state;
   }

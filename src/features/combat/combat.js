@@ -10,7 +10,6 @@ export function handleCombat() {
 }
 
 function combatModal(props) {
-  console.log(props.enemy);
   return (
     <div className="container">
       <div className="player">
