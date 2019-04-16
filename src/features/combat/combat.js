@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { range, sample } from "../../array";
 
 function combatModal(props) {
+  console.log(props.enemy);
   return (
     <div className="container">
       <div className="menu">

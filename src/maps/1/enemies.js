@@ -2,12 +2,12 @@ export const enemies = [
   {
     name: "Wolf",
     image: "wolf.png",
-    const: 18
+    const: 15
   },
   {
     name: "Spider",
     image: "spider.png",
-    const: 11
+    const: 10
   }
 ];
 
