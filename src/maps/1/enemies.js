@@ -2,7 +2,7 @@ export const enemies = [
   {
     name: "Slime",
     image: "slime.png",
-    const: 5
+    const: 6
   },
   {
     name: "Spider",

@@ -27,11 +27,13 @@
   height: 100px;
   position: relative;
   color: white;
-  text-align: center;
+  /* remove margin later */
+  margin-right: 20%;
 }
 
 .enemy {
-  width: 250px;
+  padding: 5px;
+  width: 200px;
 }
 
 .enemy img,
