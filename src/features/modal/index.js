@@ -29,7 +29,7 @@ function handleCombatKeys(e) {
 function keyCapture(component) {
   console.log(store.getState());
   window.addEventListener("keydown", e => {
-    if (store.getState().combat.visible) handleCombatKeys(e);
+    if (store.getState().modal.visible) handleCombatKeys(e);
   });
   return component;
 }
@@ -47,7 +47,7 @@ function Modal(props) {
 }
 function mapStateToProps(state) {
   return {
-    ...state.combat
+    ...state.modal
   };
 }
 
