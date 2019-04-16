@@ -34,22 +34,14 @@ function keyCapture(component) {
   return component;
 }
 
-function renderModal(props) {
-  switch (props.type) {
-    case "COMBAT":
-      return <Combat />;
-    default:
-  }
-}
-
 function Modal(props) {
   return (
     <div
       style={{ display: props.visible ? "block" : "none" }}
       className="modal"
     >
-      <h1>{props.type}</h1>
-      <div>{renderModal(props)}</div>
+      <h1>COMBAT</h1>
+      <div>{!props.visible ? null : <Combat />}</div>
     </div>
   );
 }
