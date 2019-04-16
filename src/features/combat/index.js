@@ -1,7 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import store from "../../config/store";
-import Combat from "./combat";
+import Combat, { handleCombat } from "./combat";
 import "./style.css";
 
 function handleKeyDown(e) {
@@ -16,7 +15,7 @@ function handleKeyDown(e) {
     case 40:
       return console.log("SOUTH");
     case 32:
-      return store.dispatch({ type: "END_COMBAT" });
+      return handleCombat();
     default:
       console.log(e.keyCode);
   }

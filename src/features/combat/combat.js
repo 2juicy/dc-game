@@ -1,6 +1,13 @@
 import React from "react";
 import { connect } from "react-redux";
 import { range, sample } from "../../array";
+import store from "../../config/store";
+
+export function handleCombat() {
+  // setTimeout(function() {
+  store.dispatch({ type: "END_COMBAT" });
+  // }, 3000);
+}
 
 function combatModal(props) {
   console.log(props.enemy);
