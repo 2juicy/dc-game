@@ -1,8 +1,12 @@
 import React from "react";
 import { connect } from "react-redux";
 import store from "../../config/store";
-import Combat, { handleCombat } from "./combat";
+import Combat from "./combat";
 import "./style.css";
+
+function handleCombat() {
+  store.dispatch({ type: "END_COMBAT" });
+}
 
 function handleCombatKeys(e) {
   e.preventDefault();

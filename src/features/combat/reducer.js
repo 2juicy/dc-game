@@ -7,6 +7,7 @@ const combatReducer = (state = initialState, action) => {
     case "START_COMBAT":
       return {
         visible: true,
+        myHP: 100,
         ...action.payload
       };
     case "END_COMBAT":

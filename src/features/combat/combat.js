@@ -3,19 +3,13 @@ import { connect } from "react-redux";
 import { range, sample } from "../../array";
 import store from "../../config/store";
 
-export function handleCombat() {
-  // setTimeout(function() {
-  store.dispatch({ type: "END_COMBAT" });
-  // }, 3000);
-}
-
 function combatModal(props) {
   return (
     <div className="container">
       <div className="player">
         <h4>You</h4>
         <img src={`enemies/player.png`} alt="Enemy" />
-        <h4>HP: 100 | Lvl: 10</h4>
+        <h4>HP: {store.getState().combat.myHP} | Lvl: 10</h4>
       </div>
       <div className="menu">
         <div className="menu-item">
