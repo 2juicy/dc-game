@@ -1,14 +1,14 @@
 {
-  "main.css": "/dc-game/static/css/main.6b8a850c.chunk.css",
-  "main.js": "/dc-game/static/js/main.90b9bee3.chunk.js",
-  "main.js.map": "/dc-game/static/js/main.90b9bee3.chunk.js.map",
+  "main.css": "/dc-game/static/css/main.5b16841f.chunk.css",
+  "main.js": "/dc-game/static/js/main.bfc7c85d.chunk.js",
+  "main.js.map": "/dc-game/static/js/main.bfc7c85d.chunk.js.map",
   "runtime~main.js": "/dc-game/static/js/runtime~main.c75294a3.js",
   "runtime~main.js.map": "/dc-game/static/js/runtime~main.c75294a3.js.map",
-  "static/js/2.87a951d9.chunk.js": "/dc-game/static/js/2.87a951d9.chunk.js",
-  "static/js/2.87a951d9.chunk.js.map": "/dc-game/static/js/2.87a951d9.chunk.js.map",
+  "static/js/2.bd1ce472.chunk.js": "/dc-game/static/js/2.bd1ce472.chunk.js",
+  "static/js/2.bd1ce472.chunk.js.map": "/dc-game/static/js/2.bd1ce472.chunk.js.map",
   "index.html": "/dc-game/index.html",
-  "precache-manifest.15a0f6ff83e6dd2838c881a1a8dd3f5c.js": "/dc-game/precache-manifest.15a0f6ff83e6dd2838c881a1a8dd3f5c.js",
+  "precache-manifest.3d72aaa276d750959c8bf1afc8d1acef.js": "/dc-game/precache-manifest.3d72aaa276d750959c8bf1afc8d1acef.js",
   "service-worker.js": "/dc-game/service-worker.js",
-  "static/css/main.6b8a850c.chunk.css.map": "/dc-game/static/css/main.6b8a850c.chunk.css.map",
+  "static/css/main.5b16841f.chunk.css.map": "/dc-game/static/css/main.5b16841f.chunk.css.map",
   "static/media/player_walk.png": "/dc-game/static/media/player_walk.9f19440f.png"
 }
