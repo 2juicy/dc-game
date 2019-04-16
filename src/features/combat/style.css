@@ -10,9 +10,10 @@
 
 .modal h1 {
   color: white;
-  margin-top: 0.5em;
+  margin: 0 0 0.5em 0;
   font-size: 2em;
   text-align: center;
+  border-bottom: 1px solid gray;
 }
 
 .container {
