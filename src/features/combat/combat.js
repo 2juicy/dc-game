@@ -3,12 +3,19 @@ import { connect } from "react-redux";
 import { range, sample } from "../../array";
 
 function combatModal(props) {
+  console.log(props.enemy);
   return (
-    <div>
-      <div className="enemy">
-        <img src={`enemies/${props.enemy.image}`} alt="enemy" />
+    <div className="container">
+      <div className="menu">
+        <img src="buttons/spacebar.png" alt="Attack" />
+        <div>
+          <h4>to attack</h4>
+        </div>
       </div>
-      <div className="menu" />
+      <div className="enemy">
+        <img src={`enemies/${props.enemy.image}`} alt="Enemy" />
+        <h4>HP: {props.enemy.hp}</h4>
+      </div>
     </div>
   );
 }

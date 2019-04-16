@@ -1,5 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
+import store from "../../config/store";
 import Combat from "./combat";
 import "./style.css";
 
@@ -14,6 +15,8 @@ function handleKeyDown(e) {
       return console.log("EAST");
     case 40:
       return console.log("SOUTH");
+    case 32:
+      return store.dispatch({ type: "END_COMBAT" });
     default:
       console.log(e.keyCode);
   }
@@ -53,7 +56,7 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    startCombat: type => {
+    startCombat: () => {
       dispatch({ type: "START_COMBAT" });
     },
     endCombat: () => {
