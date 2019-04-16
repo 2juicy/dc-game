@@ -27,13 +27,12 @@
 
 .menu {
   display: grid;
-  padding-top: 1em;
   width: 300px;
-  color: white;
 }
 
 .combat-text {
   margin-top: 5px;
+  padding-top: 20px;
   border-top: 1px solid white;
   grid-column: 1 / span 2;
 }
@@ -65,7 +64,7 @@ h4 {
 }
 
 .menu-item div {
+  width: 100%;
   position: absolute;
-  left: 15px;
   bottom: 0;
 }
