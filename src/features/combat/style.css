@@ -1,22 +1,3 @@
-.modal {
-  position: absolute;
-  top: 0;
-  margin: 0 auto;
-  width: 800px;
-  height: auto;
-  background-color: rgba(0, 0, 0, 0.8);
-  border: 4px solid gray;
-}
-
-.modal h1 {
-  color: white;
-  margin: 0;
-  padding: 0 0 4px 0;
-  font-size: 2em;
-  text-align: center;
-  border-bottom: 1px solid gray;
-}
-
 .container {
   color: white;
   display: flex;

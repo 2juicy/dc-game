@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import Map from "../map";
 import Player from "../player";
-import Combat from "../combat";
+import Modal from "../modal";
 import map from "../../maps/1";
 import { MAP_WIDTH, MAP_HEIGHT } from "../../config/constants";
 import handleMovement from "../movement";
@@ -39,7 +39,7 @@ class World extends React.Component {
       >
         <Map {...this.props.map} />
         <Player />
-        <Combat />
+        <Modal />
       </div>
     );
   }

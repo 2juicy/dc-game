@@ -17,7 +17,6 @@ const playerReducer = (state = initialState, action) => {
         ...state,
         walkIndex: action.payload
       };
-
     default:
       return state;
   }
