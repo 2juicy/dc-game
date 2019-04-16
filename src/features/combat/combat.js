@@ -6,16 +6,25 @@ function combatModal(props) {
   return (
     <div>
       <div className="enemy">
-        <img src={`monsters/${props.enemy.image}`} alt="enemy" />
+        <img src={`enemies/${props.enemy.image}`} alt="enemy" />
       </div>
       <div className="menu" />
     </div>
   );
 }
 
+function randomEnemy(enemies, levelRange) {
+  const data = sample(enemies);
+  return {
+    ...data,
+    hp: parseInt(data.const * sample(range(...levelRange)))
+  };
+}
+
 function mapStateToProps(state) {
   return {
-    map: state.map
+    map: state.map,
+    enemy: randomEnemy(state.map.enemies, state.map.levelRange)
   };
 }
 

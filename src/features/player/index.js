@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import walkSprite from "./player_walk.png";
-import handleMovement from "./movement";
+import { SPRITE_SIZE } from "../../config/constants";
 
 function Player(props) {
   return (
@@ -12,8 +12,8 @@ function Player(props) {
         left: props.position[0],
         backgroundImage: `url('${walkSprite}')`,
         backgroundPosition: props.spriteLocation,
-        width: "40px",
-        height: "40px"
+        width: `${SPRITE_SIZE}px`,
+        height: `${SPRITE_SIZE}px`
       }}
     />
   );
@@ -25,4 +25,15 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps)(handleMovement(Player));
+function mapDispatchToProps(dispatch) {
+  return {
+    move: direction => {
+      dispatch({ type: "MOVE_PLAYER", payload: direction });
+    }
+  };
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Player);
