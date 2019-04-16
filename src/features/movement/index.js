@@ -108,7 +108,6 @@ function animateWalk() {
 
 export default function handleMovement(component) {
   window.addEventListener("keydown", e => {
-    console.log(store.getState());
     if (!store.getState().combat.visible) handleKeyDown(e);
   });
   return component;

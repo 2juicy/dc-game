@@ -1,7 +1,7 @@
 export const enemies = [
   {
     name: "Wolf",
-    image: "Wolf.png",
+    image: "wolf.png",
     str: 16,
     int: 9,
     wisdom: 9,

@@ -6,7 +6,7 @@ function combatModal(props) {
   return (
     <div>
       <div className="enemy">
-        <img src={`monsters/${props.enemy.image}`} alt="enemy" />
+        <img src={`enemies/${props.enemy.image}`} alt="enemy" />
       </div>
       <div className="menu" />
     </div>
