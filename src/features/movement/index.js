@@ -68,7 +68,7 @@ function getSpriteLocation(direction) {
   }
 }
 
-function dispatchMove(e, direction) {
+function dispatchMove(direction) {
   const state = store.getState();
   store.dispatch({
     type: "MOVE_PLAYER",
@@ -78,20 +78,19 @@ function dispatchMove(e, direction) {
       spriteLocation: getSpriteLocation(direction)
     }
   });
-  e.preventDefault();
 }
 
 function handleKeyDown(e) {
   e.preventDefault();
   switch (e.keyCode) {
     case 37:
-      return dispatchMove(e, "WEST");
+      return dispatchMove("WEST");
     case 38:
-      return dispatchMove(e, "NORTH");
+      return dispatchMove("NORTH");
     case 39:
-      return dispatchMove(e, "EAST");
+      return dispatchMove("EAST");
     case 40:
-      return dispatchMove(e, "SOUTH");
+      return dispatchMove("SOUTH");
     default:
       console.log(e.keyCode);
   }
