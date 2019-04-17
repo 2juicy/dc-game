@@ -1,22 +1,3 @@
-.modal {
-  position: absolute;
-  top: 0;
-  margin: 0 auto;
-  width: 800px;
-  height: auto;
-  background-color: rgba(0, 0, 0, 0.8);
-  border: 4px solid gray;
-}
-
-.modal h1 {
-  color: white;
-  margin: 0;
-  padding: 0 0 4px 0;
-  font-size: 2em;
-  text-align: center;
-  border-bottom: 1px solid gray;
-}
-
 .container {
   color: white;
   display: flex;
@@ -27,13 +8,12 @@
 
 .menu {
   display: grid;
-  padding-top: 1em;
   width: 300px;
-  color: white;
 }
 
 .combat-text {
   margin-top: 5px;
+  padding-top: 20px;
   border-top: 1px solid white;
   grid-column: 1 / span 2;
 }
@@ -65,7 +45,7 @@ h4 {
 }
 
 .menu-item div {
+  width: 100%;
   position: absolute;
-  left: 15px;
   bottom: 0;
 }

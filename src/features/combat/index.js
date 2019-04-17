@@ -1,71 +1,56 @@
 import React from "react";
 import { connect } from "react-redux";
-import store from "../../config/store";
-import Combat from "./combat";
+import { range, sample } from "../../array";
 import "./style.css";
 
-function handleKeyDown(e) {
-  e.preventDefault();
-  switch (e.keyCode) {
-    case 37:
-      return console.log("WEST");
-    case 38:
-      return console.log("NORTH");
-    case 39:
-      return console.log("EAST");
-    case 40:
-      return console.log("SOUTH");
-    case 32:
-      return store.dispatch({ type: "END_COMBAT" });
-    default:
-      console.log(e.keyCode);
-  }
-}
-
-function keyCapture(props) {
-  window.addEventListener("keydown", e => {
-    if (props.visible) handleKeyDown(e);
-  });
-}
-
-function renderModal(props) {
-  switch (props.type) {
-    case "COMBAT":
-      return <Combat />;
-    default:
-  }
-}
-
-function Modal(props) {
-  keyCapture(props);
+function Combat(props) {
   return (
-    <div
-      style={{ display: props.visible ? "block" : "none" }}
-      className="modal"
-    >
-      <h1>{props.type}</h1>
-      <div>{renderModal(props)}</div>
+    <div className="container">
+      <div className="player">
+        <h4>You</h4>
+        <img src={`enemies/player.png`} alt="Enemy" />
+        <h4>HP: 100 | Lvl: 10</h4>
+      </div>
+      <div className="menu">
+        <div className="menu-item">
+          <img src="buttons/ctrl.png" alt="Heal" />
+          <div>
+            <h4>to heal</h4>
+          </div>
+        </div>
+        <div className="menu-item">
+          <img src="buttons/spacebar.png" alt="Attack" />
+          <div>
+            <h4>to attack</h4>
+          </div>
+        </div>
+        <h4 className="combat-text">Damage: 100</h4>
+        <h4 className="combat-text">A wild {props.enemy.name} appears!</h4>
+      </div>
+      <div className="enemy">
+        <h4>{props.enemy.name}</h4>
+        <img src={`enemies/${props.enemy.image}`} alt="Enemy" />
+        <h4>
+          HP: {props.enemy.hp} | Lvl: {props.enemy.hp / props.enemy.const}
+        </h4>
+      </div>
     </div>
   );
 }
+
+function randomEnemy(enemies, levelRange) {
+  const data = sample(enemies);
+  return {
+    ...data,
+    hp: parseInt(data.const * sample(range(...levelRange)))
+  };
+}
+
 function mapStateToProps(state) {
   return {
-    ...state.combat
+    map: state.map,
+    enemy: randomEnemy(state.map.enemies, state.map.levelRange)
   };
 }
 
-function mapDispatchToProps(dispatch) {
-  return {
-    startCombat: () => {
-      dispatch({ type: "START_COMBAT" });
-    },
-    endCombat: () => {
-      dispatch({ type: "END_COMBAT" });
-    }
-  };
-}
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Modal);
+export default connect(mapStateToProps)(Combat);

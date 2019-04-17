@@ -4,12 +4,7 @@ import { SPRITE_SIZE, MAP_HEIGHT, MAP_WIDTH } from "../../config/constants";
 function randomCombat() {
   const random = Math.floor(Math.random() * 10 + 1);
   if (random === 10) {
-    store.dispatch({
-      type: "START_COMBAT",
-      payload: {
-        type: "COMBAT"
-      }
-    });
+    store.dispatch({ type: "START_COMBAT" });
   }
 }
 
@@ -107,7 +102,7 @@ function animateWalk() {
 
 export default function handleMovement(component) {
   window.addEventListener("keydown", e => {
-    if (!store.getState().combat.visible) handleKeyDown(e);
+    if (!store.getState().modal.visible) handleKeyDown(e);
   });
   return component;
 }
