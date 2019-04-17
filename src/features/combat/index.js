@@ -1,15 +1,42 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { range, sample } from "../../array";
+import store from "../../config/store";
 import "./style.css";
 
 function Combat(props) {
+  useEffect(() => {
+    window.addEventListener("keydown", handleCombatKeys);
+    return () => {
+      window.removeEventListener("keydown", handleCombatKeys);
+    };
+  }, []);
+
+  const handleCombatKeys = e => {
+    if (store.getState().modal.visible) {
+      e.preventDefault();
+      switch (e.keyCode) {
+        case 37:
+          return console.log("WEST");
+        case 38:
+          return console.log("NORTH");
+        case 39:
+          return console.log("EAST");
+        case 40:
+          return console.log("SOUTH");
+        case 32:
+          return store.dispatch({ type: "END_COMBAT" });
+        default:
+          console.log(e.keyCode);
+      }
+    }
+  };
   return (
     <div className="container">
       <div className="player">
         <h4>You</h4>
         <img src={`enemies/player.png`} alt="Enemy" />
-        <h4>HP: {props.HP} | Lvl: 10</h4>
+        <h4>HP: 100 | Lvl: 10</h4>
       </div>
       <div className="menu">
         <div className="menu-item">
