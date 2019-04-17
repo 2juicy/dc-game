@@ -9,11 +9,6 @@ function Modal(props) {
     window.addEventListener("keydown", e => {
       if (store.getState().modal.visible) handleCombatKeys(e);
     });
-    return () => {
-      window.removeEventListener("keydown", e => {
-        if (store.getState().modal.visible) handleCombatKeys(e);
-      });
-    };
   }, []);
 
   const [HP, setHP] = useState([99]);
