@@ -5,10 +5,7 @@ const initialState = {
 const modalReducer = (state = initialState, action) => {
   switch (action.type) {
     case "START_COMBAT":
-      return {
-        visible: true,
-        ...action.payload
-      };
+      return { visible: true };
     case "END_COMBAT":
       return { visible: false };
     default:

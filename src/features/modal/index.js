@@ -4,10 +4,6 @@ import store from "../../config/store";
 import Combat from "../../features/combat";
 import "./style.css";
 
-function handleCombat() {
-  store.dispatch({ type: "END_COMBAT" });
-}
-
 function handleCombatKeys(e) {
   e.preventDefault();
   switch (e.keyCode) {
@@ -20,14 +16,13 @@ function handleCombatKeys(e) {
     case 40:
       return console.log("SOUTH");
     case 32:
-      return handleCombat();
+      return store.dispatch({ type: "END_COMBAT" });
     default:
       console.log(e.keyCode);
   }
 }
 
 function keyCapture(component) {
-  console.log(store.getState());
   window.addEventListener("keydown", e => {
     if (store.getState().modal.visible) handleCombatKeys(e);
   });
