@@ -1,16 +1,16 @@
 export const enemies = [
   {
-    name: "Slime",
+    name: "slime",
     image: "slime.png",
     const: 6
   },
   {
-    name: "Spider",
+    name: "spider",
     image: "spider.png",
     const: 10
   },
   {
-    name: "Wolf",
+    name: "wolf",
     image: "wolf.png",
     const: 15
   }

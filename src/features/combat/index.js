@@ -55,7 +55,7 @@ function Combat(props) {
         <h4 className="combat-text">A wild {props.enemy.name} appears!</h4>
       </div>
       <div className="enemy">
-        <h4>{props.enemy.name}</h4>
+        <h4 style={{ textTransform: "capitalize" }}>{props.enemy.name}</h4>
         <img src={`enemies/${props.enemy.image}`} alt="Enemy" />
         <h4>
           HP: {props.enemy.hp} | Lvl: {props.enemy.hp / props.enemy.const}
