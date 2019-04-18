@@ -20,7 +20,7 @@ function Combat(props) {
       e.preventDefault();
       switch (e.keyCode) {
         case 17:
-          return HP[1] ? setHP([100, --HP[1]]) : null;
+          return HP[1] && HP[0] < 100 ? setHP([100, --HP[1]]) : null;
         case 37:
           return console.log("WEST");
         case 38:
