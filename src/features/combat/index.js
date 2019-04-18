@@ -15,18 +15,12 @@ function Combat(props) {
     };
   }, []);
 
-  function handleHeal() {
-    if (HP[1] > 0) {
-      setHP([100, --HP[1]]);
-    }
-  }
-
   const handleCombatKeys = e => {
     if (store.getState().modal.visible) {
       e.preventDefault();
       switch (e.keyCode) {
         case 17:
-          return handleHeal();
+          return HP[1] ? setHP([100, --HP[1]]) : null;
         case 37:
           return console.log("WEST");
         case 38:
