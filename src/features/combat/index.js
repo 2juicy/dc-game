@@ -1,13 +1,14 @@
 import React from "react";
+import PropTypes from "prop-types";
 import "./style.css";
 
-function Combat(props) {
+export default function Combat({ enemy, HP, potion }) {
   return (
     <div className="container">
       <div className="player">
         <h4>You</h4>
         <img src={`enemies/player.png`} alt="Enemy" />
-        <h4>HP: ?? | Lvl: 1</h4>
+        <h4>HP: {HP} | Lvl: 1</h4>
       </div>
       <div className="menu">
         <div className="menu-item">
@@ -22,18 +23,22 @@ function Combat(props) {
             <h4>to attack</h4>
           </div>
         </div>
-        <h4 className="combat-text">You have ?? potions!</h4>
-        <h4 className="combat-text">A wild {props.enemy.name} appears!</h4>
+        <h4 className="combat-text">You have {potion} potions!</h4>
+        <h4 className="combat-text">A wild {enemy.name} appears!</h4>
       </div>
       <div className="enemy">
-        <h4 style={{ textTransform: "capitalize" }}>{props.enemy.name}</h4>
-        <img src={`enemies/${props.enemy.image}`} alt="Enemy" />
+        <h4 style={{ textTransform: "capitalize" }}>{enemy.name}</h4>
+        <img src={`enemies/${enemy.image}`} alt="Enemy" />
         <h4>
-          HP: {props.enemy.hp} | Lvl: {props.enemy.hp / props.enemy.const}
+          HP: {enemy.hp} | Lvl: {enemy.hp / enemy.const}
         </h4>
       </div>
     </div>
   );
 }
 
-export default Combat;
+Combat.propTypes = {
+  enemy: PropTypes.object.isRequired,
+  potion: PropTypes.number.isRequired,
+  HP: PropTypes.number.isRequired
+};

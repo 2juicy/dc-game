@@ -25,7 +25,7 @@ class World extends React.Component {
       >
         <Map {...this.props.map} />
         <Player />
-        <Modal />
+        {this.props.modal.visible && <Modal />}
       </div>
     );
   }
@@ -33,6 +33,7 @@ class World extends React.Component {
 
 function mapStateToProps(state) {
   return {
+    modal: state.modal,
     map: state.map
   };
 }

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import Combat from "../../features/combat";
 import store from "../../config/store";
@@ -15,17 +15,40 @@ function randomEnemy(enemies, levelRange) {
 }
 
 function Modal(props) {
+  const [HP, setHP] = useState(1);
+  const [potion, setPotion] = useState(3);
+  const [enemy, setEnemy] = useState(randomEnemy(map.enemies, map.levelRange));
+
   useEffect(() => {
+    console.log("mount");
     window.addEventListener("keydown", handleCombatKeys);
     return () => {
+      console.log("unmount");
+      setEnemy(randomEnemy(map.enemies, map.levelRange));
       window.removeEventListener("keydown", handleCombatKeys);
     };
   }, []);
 
+  useEffect(() => {
+    setPotion(potion);
+
+    console.log(potion);
+  }, [potion]);
+
+  function handleHeal() {
+    if (potion) {
+      setPotion(prev => prev - 1);
+      setHP(100);
+    }
+    console.log(potion);
+  }
+
   const handleCombatKeys = e => {
-    if (store.getState().modal.visible) {
+    if (props.visible) {
       e.preventDefault();
       switch (e.keyCode) {
+        case 17:
+          return handleHeal();
         case 37:
           return console.log("WEST");
         case 38:
@@ -42,18 +65,14 @@ function Modal(props) {
     }
   };
 
-  const enemy = randomEnemy(map.enemies, map.levelRange);
-
   return (
-    <div
-      style={{ visibility: props.visible ? "visible" : "hidden" }}
-      className="modal"
-    >
+    <div className="modal">
       <h1>COMBAT</h1>
-      {!props.visible ? null : <Combat enemy={enemy} />}
+      <Combat enemy={enemy} HP={HP} potion={potion} />
     </div>
   );
 }
+
 function mapStateToProps(state) {
   return {
     ...state.modal
