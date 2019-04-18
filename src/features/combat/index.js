@@ -5,8 +5,8 @@ import store from "../../config/store";
 import "./style.css";
 
 function Combat(props) {
-  const [HP, setHP] = useState([1, 3]);
-  const [enemy, setEnemy] = useState(props.enemy);
+  const [HP, setHP] = useState([50, 3]);
+  const [enemy] = useState(props.enemy);
 
   useEffect(() => {
     window.addEventListener("keydown", handleCombatKeys);
@@ -15,14 +15,12 @@ function Combat(props) {
     };
   }, []);
 
-  console.log(HP);
   const handleCombatKeys = e => {
-    console.log(HP);
     if (store.getState().modal.visible) {
       e.preventDefault();
       switch (e.keyCode) {
         case 17:
-          return HP[1] && HP[0] < 100 ? setHP([100, HP[1] - 1]) : null;
+          return HP[1] && HP[0] < 50 ? setHP([50, HP[1] - 1]) : null;
         case 37:
           return console.log("WEST");
         case 38:
@@ -43,7 +41,7 @@ function Combat(props) {
       <div className="player">
         <h4>You</h4>
         <img src={`enemies/player.png`} alt="Enemy" />
-        <h4>HP: {HP[0]} | Lvl: 10</h4>
+        <h4>HP: {HP[0]} | Lvl: 1</h4>
       </div>
       <div className="menu">
         <div className="menu-item">
