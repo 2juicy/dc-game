@@ -5,8 +5,8 @@ import store from "../../config/store";
 import "./style.css";
 
 function Combat(props) {
-  let [HP, setHP] = useState([1, 3]);
-  let [enemy, setEnemy] = useState(props.enemy);
+  const [HP, setHP] = useState([1, 3]);
+  const [enemy, setEnemy] = useState(props.enemy);
 
   useEffect(() => {
     window.addEventListener("keydown", handleCombatKeys);
@@ -15,12 +15,14 @@ function Combat(props) {
     };
   }, []);
 
+  console.log(HP);
   const handleCombatKeys = e => {
+    console.log(HP);
     if (store.getState().modal.visible) {
       e.preventDefault();
       switch (e.keyCode) {
         case 17:
-          return HP[1] ? setHP([100, --HP[1]]) : null;
+          return HP[1] && HP[0] < 100 ? setHP([100, HP[1] - 1]) : null;
         case 37:
           return console.log("WEST");
         case 38:
