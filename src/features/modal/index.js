@@ -6,7 +6,7 @@ import "./style.css";
 function Modal(props) {
   return (
     <div
-      style={{ display: props.visible ? "block" : "none" }}
+      style={{ visibility: props.visible ? "visible" : "hidden" }}
       className="modal"
     >
       <h1>COMBAT</h1>
