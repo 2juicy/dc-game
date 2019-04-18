@@ -18,6 +18,7 @@ function Modal(props) {
   let [HP, setHP] = useState(100);
   let [potion, setPotion] = useState(3);
   const [enemy, setEnemy] = useState(randomEnemy(map.enemies, map.levelRange));
+  let [enemyHP, setEnemyHP] = useState(enemy.hp);
 
   useEffect(() => {
     console.log("mount");
@@ -36,22 +37,20 @@ function Modal(props) {
     }
   }
 
+  function handleCombat() {
+    setEnemyHP((enemyHP = enemyHP - Math.floor(Math.random() * (11 - 5) + 5)));
+    setHP((HP = HP - Math.floor(Math.random() * (11 - 5) + 5)));
+    if (HP < 1 || enemyHP < 1) store.dispatch({ type: "END_COMBAT" });
+  }
+
   const handleCombatKeys = e => {
     if (props.visible) {
       e.preventDefault();
       switch (e.keyCode) {
         case 17:
           return handleHeal();
-        case 37:
-          return console.log("WEST");
-        case 38:
-          return console.log("NORTH");
-        case 39:
-          return console.log("EAST");
-        case 40:
-          return console.log("SOUTH");
         case 32:
-          return store.dispatch({ type: "END_COMBAT" });
+          return handleCombat();
         default:
           console.log(e.keyCode);
       }
@@ -61,7 +60,7 @@ function Modal(props) {
   return (
     <div className="modal">
       <h1>COMBAT</h1>
-      <Combat enemy={enemy} HP={HP} potion={potion} />
+      <Combat enemy={enemy} HP={HP} enemyHP={enemyHP} potion={potion} />
     </div>
   );
 }

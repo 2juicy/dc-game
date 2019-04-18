@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import "./style.css";
 
-export default function Combat({ enemy, HP, potion }) {
+export default function Combat({ enemy, HP, enemyHP, potion }) {
   return (
     <div className="container">
       <div className="player">
@@ -30,7 +30,7 @@ export default function Combat({ enemy, HP, potion }) {
         <h4 style={{ textTransform: "capitalize" }}>{enemy.name}</h4>
         <img src={`enemies/${enemy.image}`} alt="Enemy" />
         <h4>
-          HP: {enemy.hp} | Lvl: {enemy.hp / enemy.const}
+          HP: {enemyHP} | Lvl: {enemy.hp / enemy.const}
         </h4>
       </div>
     </div>
@@ -39,6 +39,7 @@ export default function Combat({ enemy, HP, potion }) {
 
 Combat.propTypes = {
   enemy: PropTypes.object.isRequired,
+  enemyHP: PropTypes.number.isRequired,
   potion: PropTypes.number.isRequired,
   HP: PropTypes.number.isRequired
 };
