@@ -25,15 +25,4 @@ function mapStateToProps(state) {
   };
 }
 
-function mapDispatchToProps(dispatch) {
-  return {
-    move: direction => {
-      dispatch({ type: "MOVE_PLAYER", payload: direction });
-    }
-  };
-}
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Player);
+export default connect(mapStateToProps)(Player);

@@ -7,20 +7,6 @@ import map from "../../maps/1";
 import { MAP_WIDTH, MAP_HEIGHT } from "../../config/constants";
 import handleMovement from "../movement";
 
-function mapStateToProps(state) {
-  return {
-    map: state.map
-  };
-}
-
-function mapDispatchToProps(dispatch) {
-  return {
-    persistMapData: tiles => {
-      dispatch({ type: "ADD_TILES", payload: tiles });
-    }
-  };
-}
-
 class World extends React.Component {
   componentDidMount() {
     this.props.persistMapData(map);
@@ -44,6 +30,21 @@ class World extends React.Component {
     );
   }
 }
+
+function mapStateToProps(state) {
+  return {
+    map: state.map
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    persistMapData: tiles => {
+      dispatch({ type: "ADD_TILES", payload: tiles });
+    }
+  };
+}
+
 export default connect(
   mapStateToProps,
   mapDispatchToProps
