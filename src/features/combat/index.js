@@ -5,6 +5,7 @@ import store from "../../config/store";
 import "./style.css";
 
 function Combat(props) {
+  console.log(props);
   useEffect(() => {
     window.addEventListener("keydown", handleCombatKeys);
     return () => {
@@ -13,12 +14,13 @@ function Combat(props) {
   }, []);
 
   let [HP, setHP] = useState([1, 3]);
+  let [enemy, setEnemy] = useState(props.enemy);
 
-  const handleHeal = () => {
+  function handleHeal() {
     if (HP[1] > 0) {
       setHP([100, --HP[1]]);
     }
-  };
+  }
 
   const handleCombatKeys = e => {
     if (store.getState().modal.visible) {
@@ -62,13 +64,13 @@ function Combat(props) {
           </div>
         </div>
         <h4 className="combat-text">You have {HP[1]} potions!</h4>
-        <h4 className="combat-text">A wild {props.enemy.name} appears!</h4>
+        <h4 className="combat-text">A wild {enemy.name} appears!</h4>
       </div>
       <div className="enemy">
-        <h4 style={{ textTransform: "capitalize" }}>{props.enemy.name}</h4>
-        <img src={`enemies/${props.enemy.image}`} alt="Enemy" />
+        <h4 style={{ textTransform: "capitalize" }}>{enemy.name}</h4>
+        <img src={`enemies/${enemy.image}`} alt="Enemy" />
         <h4>
-          HP: {props.enemy.hp} | Lvl: {props.enemy.hp / props.enemy.const}
+          HP: {enemy.hp} | Lvl: {enemy.hp / enemy.const}
         </h4>
       </div>
     </div>
