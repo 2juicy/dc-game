@@ -1,47 +1,13 @@
-import React, { useEffect, useState } from "react";
-import { connect } from "react-redux";
-import { range, sample } from "../../array";
-import store from "../../config/store";
+import React from "react";
 import "./style.css";
 
 function Combat(props) {
-  const [HP, setHP] = useState([50, 3]);
-  const [enemy] = useState(props.enemy);
-
-  useEffect(() => {
-    window.addEventListener("keydown", handleCombatKeys);
-    return () => {
-      window.removeEventListener("keydown", handleCombatKeys);
-    };
-  }, []);
-
-  const handleCombatKeys = e => {
-    if (store.getState().modal.visible) {
-      e.preventDefault();
-      switch (e.keyCode) {
-        case 17:
-          return HP[1] && HP[0] < 50 ? setHP([50, HP[1] - 1]) : null;
-        case 37:
-          return console.log("WEST");
-        case 38:
-          return console.log("NORTH");
-        case 39:
-          return console.log("EAST");
-        case 40:
-          return console.log("SOUTH");
-        case 32:
-          return store.dispatch({ type: "END_COMBAT" });
-        default:
-          console.log(e.keyCode);
-      }
-    }
-  };
   return (
     <div className="container">
       <div className="player">
         <h4>You</h4>
         <img src={`enemies/player.png`} alt="Enemy" />
-        <h4>HP: {HP[0]} | Lvl: 1</h4>
+        <h4>HP: ?? | Lvl: 1</h4>
       </div>
       <div className="menu">
         <div className="menu-item">
@@ -56,33 +22,18 @@ function Combat(props) {
             <h4>to attack</h4>
           </div>
         </div>
-        <h4 className="combat-text">You have {HP[1]} potions!</h4>
-        <h4 className="combat-text">A wild {enemy.name} appears!</h4>
+        <h4 className="combat-text">You have ?? potions!</h4>
+        <h4 className="combat-text">A wild {props.enemy.name} appears!</h4>
       </div>
       <div className="enemy">
-        <h4 style={{ textTransform: "capitalize" }}>{enemy.name}</h4>
-        <img src={`enemies/${enemy.image}`} alt="Enemy" />
+        <h4 style={{ textTransform: "capitalize" }}>{props.enemy.name}</h4>
+        <img src={`enemies/${props.enemy.image}`} alt="Enemy" />
         <h4>
-          HP: {enemy.hp} | Lvl: {enemy.hp / enemy.const}
+          HP: {props.enemy.hp} | Lvl: {props.enemy.hp / props.enemy.const}
         </h4>
       </div>
     </div>
   );
 }
 
-function randomEnemy(enemies, levelRange) {
-  const data = sample(enemies);
-  return {
-    ...data,
-    hp: parseInt(data.const * sample(range(...levelRange)))
-  };
-}
-
-function mapStateToProps(state) {
-  return {
-    map: state.map,
-    enemy: randomEnemy(state.map.enemies, state.map.levelRange)
-  };
-}
-
-export default connect(mapStateToProps)(Combat);
+export default Combat;
