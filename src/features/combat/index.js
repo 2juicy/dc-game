@@ -5,16 +5,15 @@ import store from "../../config/store";
 import "./style.css";
 
 function Combat(props) {
-  console.log(props);
+  let [HP, setHP] = useState([1, 3]);
+  let [enemy, setEnemy] = useState(props.enemy);
+
   useEffect(() => {
     window.addEventListener("keydown", handleCombatKeys);
     return () => {
       window.removeEventListener("keydown", handleCombatKeys);
     };
   }, []);
-
-  let [HP, setHP] = useState([1, 3]);
-  let [enemy, setEnemy] = useState(props.enemy);
 
   function handleHeal() {
     if (HP[1] > 0) {
