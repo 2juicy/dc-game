@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import { range, sample } from "../../array";
 import store from "../../config/store";
@@ -12,10 +12,20 @@ function Combat(props) {
     };
   }, []);
 
+  let [HP, setHP] = useState([1, 3]);
+
+  const handleHeal = () => {
+    if (HP[1] > 0) {
+      setHP([100, --HP[1]]);
+    }
+  };
+
   const handleCombatKeys = e => {
     if (store.getState().modal.visible) {
       e.preventDefault();
       switch (e.keyCode) {
+        case 17:
+          return handleHeal();
         case 37:
           return console.log("WEST");
         case 38:
@@ -36,7 +46,7 @@ function Combat(props) {
       <div className="player">
         <h4>You</h4>
         <img src={`enemies/player.png`} alt="Enemy" />
-        <h4>HP: 100 | Lvl: 10</h4>
+        <h4>HP: {HP[0]} | Lvl: 10</h4>
       </div>
       <div className="menu">
         <div className="menu-item">
@@ -51,7 +61,7 @@ function Combat(props) {
             <h4>to attack</h4>
           </div>
         </div>
-        <h4 className="combat-text">Damage: 100</h4>
+        <h4 className="combat-text">You have {HP[1]} potions!</h4>
         <h4 className="combat-text">A wild {props.enemy.name} appears!</h4>
       </div>
       <div className="enemy">
