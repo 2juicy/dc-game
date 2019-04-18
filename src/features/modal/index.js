@@ -15,8 +15,8 @@ function randomEnemy(enemies, levelRange) {
 }
 
 function Modal(props) {
-  const [HP, setHP] = useState(1);
-  const [potion, setPotion] = useState(3);
+  let [HP, setHP] = useState(100);
+  let [potion, setPotion] = useState(3);
   const [enemy, setEnemy] = useState(randomEnemy(map.enemies, map.levelRange));
 
   useEffect(() => {
@@ -29,18 +29,11 @@ function Modal(props) {
     };
   }, []);
 
-  useEffect(() => {
-    setPotion(potion);
-
-    console.log(potion);
-  }, [potion]);
-
   function handleHeal() {
-    if (potion) {
-      setPotion(prev => prev - 1);
-      setHP(100);
+    if (potion && HP < 100) {
+      setPotion(--potion);
+      setHP((HP = 100));
     }
-    console.log(potion);
   }
 
   const handleCombatKeys = e => {
