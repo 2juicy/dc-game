@@ -44,9 +44,13 @@ function Modal(props) {
       Math.floor(Math.random() * (11 - 5) + 5),
       Math.floor(Math.random() * (11 - 5) + 5)
     ];
-    setHP([(HP[0] = HP[0] - dmg[0]), HP[1]]);
-    setEnemyHP((enemyHP = enemyHP - dmg[1]));
-    if (HP < 1 || enemyHP < 1) {
+    dmg[0] > HP[0]
+      ? setHP([(HP[0] = 0), HP[1]])
+      : setHP([(HP[0] = HP[0] - dmg[0]), HP[1]]);
+    dmg[1] > enemyHP
+      ? setEnemyHP((enemyHP = 0))
+      : setEnemyHP((enemyHP = enemyHP - dmg[1]));
+    if (HP[0] < 1 || enemyHP < 1) {
       setMessage("You have defeated your opponent!");
       setTimeout(() => {
         store.dispatch({ type: "END_COMBAT" });
