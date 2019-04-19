@@ -5,21 +5,21 @@
 
 .rock {
   /* Development URL */
-  /* background-image: url(/tiles/rock.png); */
+  background-image: url(/tiles/rock.png);
   /* Production URL */
-  background-image: url(/dc-game/tiles/rock.png);
+  /* background-image: url(/dc-game/tiles/rock.png); */
 }
 
 .tree {
   /* Development URL */
-  /* background-image: url(/tiles/tree.png); */
+  background-image: url(/tiles/tree.png);
   /* Production URL */
-  background-image: url(/dc-game/tiles/tree.png);
+  /* background-image: url(/dc-game/tiles/tree.png); */
 }
 
 .chest {
   /* Development URL */
-  /* background-image: url(/tiles/chest.png); */
+  background-image: url(/tiles/chest.png);
   /* Production URL */
-  background-image: url(/dc-game/tiles/chest.png);
+  /* background-image: url(/dc-game/tiles/chest.png); */
 }
