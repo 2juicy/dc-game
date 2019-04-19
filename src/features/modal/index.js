@@ -7,40 +7,55 @@ import map from "../../maps/1";
 import "./style.css";
 
 function randomEnemy(enemies, levelRange) {
-  const data = sample(enemies);
+  const _enemy = sample(enemies);
   return {
-    ...data,
-    hp: parseInt(data.const * sample(range(...levelRange)))
+    ..._enemy,
+    hp: parseInt(_enemy.const * sample(range(...levelRange)))
   };
 }
 
 function Modal(props) {
-  let [HP, setHP] = useState(100);
-  let [potion, setPotion] = useState(3);
   const [enemy, setEnemy] = useState(randomEnemy(map.enemies, map.levelRange));
+  const [message, setMessage] = useState(`A wild ${enemy.name} appears!`);
+  let [HP, setHP] = useState([50, 3]);
   let [enemyHP, setEnemyHP] = useState(enemy.hp);
 
   useEffect(() => {
-    console.log("mount");
     window.addEventListener("keydown", handleCombatKeys);
     return () => {
-      console.log("unmount");
       setEnemy(randomEnemy(map.enemies, map.levelRange));
       window.removeEventListener("keydown", handleCombatKeys);
     };
   }, []);
 
   function handleHeal() {
-    if (potion && HP < 100) {
-      setPotion(--potion);
-      setHP((HP = 100));
+    if (HP[1] && HP[0] < 50) {
+      setHP([(HP[0] = 50), --HP[1]]);
+      setMessage("You used a potion!");
+    } else if (HP[0] === 50) {
+      setMessage("You already have full health!");
+    } else if (!HP[1]) {
+      setMessage("You have no more potions!");
     }
   }
 
   function handleCombat() {
-    setEnemyHP((enemyHP = enemyHP - Math.floor(Math.random() * (11 - 5) + 5)));
-    setHP((HP = HP - Math.floor(Math.random() * (11 - 5) + 5)));
-    if (HP < 1 || enemyHP < 1) store.dispatch({ type: "END_COMBAT" });
+    const dmg = [
+      Math.floor(Math.random() * (11 - 5) + 5),
+      Math.floor(Math.random() * (11 - 5) + 5)
+    ];
+    setHP([(HP[0] = HP[0] - dmg[0]), HP[1]]);
+    setEnemyHP((enemyHP = enemyHP - dmg[1]));
+    if (HP < 1 || enemyHP < 1) {
+      setMessage("You have defeated your opponent!");
+      setTimeout(() => {
+        store.dispatch({ type: "END_COMBAT" });
+      }, 2000);
+    } else {
+      setMessage(
+        `You took ${dmg[0]} damage and dealt ${dmg[1]} to your opponent!`
+      );
+    }
   }
 
   const handleCombatKeys = e => {
@@ -60,7 +75,7 @@ function Modal(props) {
   return (
     <div className="modal">
       <h1>COMBAT</h1>
-      <Combat enemy={enemy} HP={HP} enemyHP={enemyHP} potion={potion} />
+      <Combat enemy={enemy} HP={HP} enemyHP={enemyHP} message={message} />
     </div>
   );
 }
