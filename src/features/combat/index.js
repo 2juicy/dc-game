@@ -2,13 +2,13 @@ import React from "react";
 import PropTypes from "prop-types";
 import "./style.css";
 
-export default function Combat({ enemy, HP, enemyHP, potion }) {
+export default function Combat({ enemy, HP, enemyHP }) {
   return (
     <div className="container">
       <div className="player">
         <h4>You</h4>
         <img src={`enemies/player.png`} alt="Enemy" />
-        <h4>HP: {HP} | Lvl: 1</h4>
+        <h4>HP: {HP[0]} | Lvl: 1</h4>
       </div>
       <div className="menu">
         <div className="menu-item">
@@ -23,7 +23,7 @@ export default function Combat({ enemy, HP, enemyHP, potion }) {
             <h4>to attack</h4>
           </div>
         </div>
-        <h4 className="combat-text">You have {potion} potions!</h4>
+        <h4 className="combat-text">You have {HP[1]} potion(s) left!</h4>
         <h4 className="combat-text">A wild {enemy.name} appears!</h4>
       </div>
       <div className="enemy">
@@ -40,6 +40,5 @@ export default function Combat({ enemy, HP, enemyHP, potion }) {
 Combat.propTypes = {
   enemy: PropTypes.object.isRequired,
   enemyHP: PropTypes.number.isRequired,
-  potion: PropTypes.number.isRequired,
-  HP: PropTypes.number.isRequired
+  HP: PropTypes.arrayOf(PropTypes.number)
 };

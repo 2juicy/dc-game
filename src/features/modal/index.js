@@ -15,9 +15,8 @@ function randomEnemy(enemies, levelRange) {
 }
 
 function Modal(props) {
-  let [HP, setHP] = useState(50);
-  let [potion, setPotion] = useState(3);
   const [enemy, setEnemy] = useState(randomEnemy(map.enemies, map.levelRange));
+  let [HP, setHP] = useState([50, 3]);
   let [enemyHP, setEnemyHP] = useState(enemy.hp);
 
   useEffect(() => {
@@ -31,15 +30,14 @@ function Modal(props) {
   }, []);
 
   function handleHeal() {
-    if (potion && HP < 50) {
-      setPotion(--potion);
-      setHP((HP = 50));
+    if (HP[1] && HP[0] < 50) {
+      setHP([(HP[0] = 50), --HP[1]]);
     }
   }
 
   function handleCombat() {
     setEnemyHP((enemyHP = enemyHP - Math.floor(Math.random() * (11 - 5) + 5)));
-    setHP((HP = HP - Math.floor(Math.random() * (11 - 5) + 5)));
+    setHP([(HP[0] = HP[0] - Math.floor(Math.random() * (11 - 5) + 5)), HP[1]]);
     if (HP < 1 || enemyHP < 1) store.dispatch({ type: "END_COMBAT" });
   }
 
@@ -60,7 +58,7 @@ function Modal(props) {
   return (
     <div className="modal">
       <h1>COMBAT</h1>
-      <Combat enemy={enemy} HP={HP} enemyHP={enemyHP} potion={potion} />
+      <Combat enemy={enemy} HP={HP} enemyHP={enemyHP} />
     </div>
   );
 }
