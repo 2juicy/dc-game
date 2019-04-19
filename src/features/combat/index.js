@@ -2,13 +2,13 @@ import React from "react";
 import PropTypes from "prop-types";
 import "./style.css";
 
-export default function Combat({ enemy, HP, enemyHP }) {
+export default function Combat({ enemy, HP, enemyHP, message }) {
   return (
     <div className="container">
       <div className="player">
         <h4>You</h4>
         <img src={`enemies/player.png`} alt="Enemy" />
-        <h4>HP: {HP[0]} | Lvl: 1</h4>
+        <h4>HP: {HP[0]}</h4>
       </div>
       <div className="menu">
         <div className="menu-item">
@@ -24,7 +24,7 @@ export default function Combat({ enemy, HP, enemyHP }) {
           </div>
         </div>
         <h4 className="combat-text">You have {HP[1]} potion(s) left!</h4>
-        <h4 className="combat-text">A wild {enemy.name} appears!</h4>
+        <h4 className="combat-text">{message}</h4>
       </div>
       <div className="enemy">
         <h4 style={{ textTransform: "capitalize" }}>{enemy.name}</h4>
@@ -40,5 +40,6 @@ export default function Combat({ enemy, HP, enemyHP }) {
 Combat.propTypes = {
   enemy: PropTypes.object.isRequired,
   enemyHP: PropTypes.number.isRequired,
-  HP: PropTypes.arrayOf(PropTypes.number)
+  HP: PropTypes.arrayOf(PropTypes.number),
+  message: PropTypes.string.isRequired
 };
