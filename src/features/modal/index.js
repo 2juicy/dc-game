@@ -7,15 +7,15 @@ import map from "../../maps/1";
 import "./style.css";
 
 function randomEnemy(enemies, levelRange) {
-  const data = sample(enemies);
+  const _enemy = sample(enemies);
   return {
-    ...data,
-    hp: parseInt(data.const * sample(range(...levelRange)))
+    ..._enemy,
+    hp: parseInt(_enemy.const * sample(range(...levelRange)))
   };
 }
 
 function Modal(props) {
-  let [HP, setHP] = useState(100);
+  let [HP, setHP] = useState(50);
   let [potion, setPotion] = useState(3);
   const [enemy, setEnemy] = useState(randomEnemy(map.enemies, map.levelRange));
   let [enemyHP, setEnemyHP] = useState(enemy.hp);
@@ -31,9 +31,9 @@ function Modal(props) {
   }, []);
 
   function handleHeal() {
-    if (potion && HP < 100) {
+    if (potion && HP < 50) {
       setPotion(--potion);
-      setHP((HP = 100));
+      setHP((HP = 50));
     }
   }
 
