@@ -16,3 +16,10 @@
   text-align: center;
   border-bottom: 1px solid gray;
 }
+
+p {
+  margin: 0;
+  color: white;
+  text-align: center;
+  font-size: 1.45em;
+}

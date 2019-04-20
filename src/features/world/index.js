@@ -25,6 +25,7 @@ class World extends React.Component {
       >
         <Map {...this.props.map} />
         <Player />
+        {!this.props.modal.visible && <p>Press the arrow keys to move!</p>}
         {this.props.modal.visible && <Modal />}
       </div>
     );
