@@ -3,13 +3,13 @@ export const enemies = [
     name: "slime",
     image: "slime.png",
     const: 6,
-    atk: 1
+    atk: 2
   },
   {
     name: "spider",
     image: "spider.png",
     const: 10,
-    atk: 2
+    atk: 3
   },
   {
     name: "wolf",
