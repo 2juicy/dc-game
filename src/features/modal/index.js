@@ -63,7 +63,7 @@ function Modal(props) {
   }
 
   const handleCombatKeys = e => {
-    if (props.visible) {
+    if (props.visible && HP[0] && enemyHP > 0) {
       e.preventDefault();
       switch (e.keyCode) {
         case 17:
