@@ -54,7 +54,7 @@ function Modal(props) {
         : setHP([(HP[0] = HP[0] - dmg[0]), HP[1]]);
     }
     if (enemyHP < 1) {
-      setMessage("You have defeated your opponent!");
+      setMessage(`You dealt ${dmg[0]} and defeated your opponent!`);
       setTimeout(() => {
         store.dispatch({ type: "END_COMBAT" });
       }, 2000);
