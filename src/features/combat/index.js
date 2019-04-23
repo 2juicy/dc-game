@@ -7,7 +7,7 @@ export default function Combat({ enemy, HP, enemyHP, message }) {
     <div className="container">
       <div className="player">
         <h4>You</h4>
-        <img src={`enemies/player.png`} alt="Enemy" />
+        <img src={`player/player.png`} alt="Enemy" />
         <h4>HP: {HP[0]}/50</h4>
       </div>
       <div className="menu">
