@@ -7,8 +7,8 @@ export default function Combat({ enemy, HP, enemyHP, message }) {
     <div className="container">
       <div className="player">
         <h4>You</h4>
-        <img src={`enemies/player.png`} alt="Enemy" />
-        <h4>HP: {HP[0]}</h4>
+        <img src={`player/player.png`} alt="Enemy" />
+        <h4>HP: {HP[0]}/50</h4>
       </div>
       <div className="menu">
         <div className="menu-item">
@@ -30,7 +30,7 @@ export default function Combat({ enemy, HP, enemyHP, message }) {
         <h4 style={{ textTransform: "capitalize" }}>{enemy.name}</h4>
         <img src={`enemies/${enemy.image}`} alt="Enemy" />
         <h4>
-          HP: {enemyHP} | Lvl: {enemy.hp / enemy.const}
+          HP: {enemyHP}/{enemy.hp} | Lvl: {enemy.hp / enemy.const}
         </h4>
       </div>
     </div>
