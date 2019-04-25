@@ -2,17 +2,20 @@ export const enemies = [
   {
     name: "slime",
     image: "slime.png",
-    const: 6
+    const: 100,
+    atk: 3
   },
   {
     name: "spider",
     image: "spider.png",
-    const: 10
+    const: 50,
+    atk: 12
   },
   {
     name: "wolf",
     image: "wolf.png",
-    const: 15
+    const: 65,
+    atk: 9
   }
 ];
 

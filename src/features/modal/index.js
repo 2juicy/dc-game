@@ -8,9 +8,11 @@ import "./style.css";
 
 function randomEnemy(enemies, levelRange) {
   const _enemy = sample(enemies);
+  const level = sample(range(...levelRange));
   return {
     ..._enemy,
-    hp: parseInt(_enemy.const * sample(range(...levelRange)))
+    hp: parseInt(_enemy.const + 3 * level),
+    level: level
   };
 }
 

@@ -30,7 +30,7 @@ export default function Combat({ enemy, HP, enemyHP, message }) {
         <h4 style={{ textTransform: "capitalize" }}>{enemy.name}</h4>
         <img src={`enemies/${enemy.image}`} alt="Enemy" />
         <h4>
-          HP: {enemyHP}/{enemy.hp} | Lvl: {enemy.hp / enemy.const}
+          HP: {enemyHP}/{enemy.hp} | Lvl: {enemy.level}
         </h4>
       </div>
     </div>
