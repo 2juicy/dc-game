@@ -20,7 +20,7 @@ function randomEnemy(enemies, levelRange) {
 function Modal(props) {
   const [enemy, setEnemy] = useState(randomEnemy(map.enemies, map.levelRange));
   const [message, setMessage] = useState(`A wild ${enemy.name} appears!`);
-  let [HP, setHP] = useState([50, 3]);
+  let [HP, setHP] = useState([55, 3]);
   let [enemyHP, setEnemyHP] = useState(enemy.hp);
 
   useEffect(() => {
@@ -32,10 +32,10 @@ function Modal(props) {
   }, []);
 
   function handleHeal() {
-    if (HP[1] && HP[0] < 50) {
-      setHP([(HP[0] = 50), --HP[1]]);
+    if (HP[1] && HP[0] < 55) {
+      setHP([(HP[0] = 55), --HP[1]]);
       setMessage("You used a potion!");
-    } else if (HP[0] === 50) {
+    } else if (HP[0] === 55) {
       setMessage("You already have full health!");
     } else if (!HP[1]) {
       setMessage("You have no more potions!");
