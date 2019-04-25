@@ -43,10 +43,11 @@ function Modal(props) {
   }
 
   function handleCombat() {
-    const dmg = [
-      Math.floor(Math.random() * (11 - 5) + 5),
-      Math.floor(Math.random() * (11 - 5) + 5)
-    ];
+    const enemyAttack = Math.floor(
+      Math.random() * (enemy.atk + enemy.level) + enemy.atk
+    );
+    console.log(enemyAttack);
+    const dmg = [enemyAttack, Math.floor(Math.random() * (11 - 5) + 5)];
     dmg[1] > enemyHP
       ? setEnemyHP((enemyHP = 0))
       : setEnemyHP((enemyHP = enemyHP - dmg[1]));

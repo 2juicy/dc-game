@@ -9,13 +9,13 @@ export const enemies = [
     name: "spider",
     image: "spider.png",
     const: 50,
-    atk: 12
+    atk: 6
   },
   {
     name: "wolf",
     image: "wolf.png",
     const: 65,
-    atk: 9
+    atk: 5
   }
 ];
 
